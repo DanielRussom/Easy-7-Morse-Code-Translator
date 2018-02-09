@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="275.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="275.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.DisplayController">
    <children>
-      <Button layoutX="86.0" layoutY="249.0" mnemonicParsing="false" text="Translate to English" />
+      <Button layoutX="86.0" layoutY="249.0" mnemonicParsing="false" onAction="#translateToEnglish" text="Translate to English" />
       <Label layoutX="187.0" layoutY="14.0" text="Morse Code Translator" textAlignment="CENTER" AnchorPane.rightAnchor="192.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextArea layoutX="29.0" layoutY="105.0" prefHeight="132.0" prefWidth="234.0" />
+      <TextArea fx:id="taMorseCode" layoutX="29.0" layoutY="105.0" prefHeight="132.0" prefWidth="234.0" wrapText="true" />
       <Separator layoutX="297.0" layoutY="45.0" orientation="VERTICAL" prefHeight="250.0" prefWidth="3.0" />
       <Separator layoutY="45.0" prefHeight="0.0" prefWidth="600.0" />
       <Label layoutX="98.0" layoutY="62.0" text="Morse Code">
@@ -23,8 +23,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="373.0" layoutY="249.0" mnemonicParsing="false" text="Translate to Morse Code" />
-      <TextArea layoutX="329.0" layoutY="105.0" prefHeight="132.0" prefWidth="234.0" />
+      <Button layoutX="373.0" layoutY="249.0" mnemonicParsing="false" onAction="#translateToMorseCode" text="Translate to Morse Code" />
+      <TextArea fx:id="taEnglish" layoutX="329.0" layoutY="105.0" prefHeight="132.0" prefWidth="234.0" wrapText="true" />
       <Label layoutX="419.0" layoutY="62.0" text="English">
          <font>
             <Font size="18.0" />
