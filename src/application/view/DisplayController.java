@@ -1,5 +1,6 @@
 package application.view;
 
+import application.util.MorseCodeTranslator;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
@@ -18,7 +19,7 @@ public class DisplayController {
 	
 	@FXML
 	public void translateToEnglish(){
-		String textMorse = taMorseCode.getText();
-		taEnglish.setText(textMorse + " but translated - TODO");
+		String textMorse = MorseCodeTranslator.translateToEnglish(taMorseCode.getText());
+		taEnglish.setText(textMorse);
 	}
 }
