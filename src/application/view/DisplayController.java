@@ -13,8 +13,8 @@ public class DisplayController {
 	
 	@FXML
 	public void translateToMorseCode(){
-		String textEnglish = taEnglish.getText();
-		taMorseCode.setText(textEnglish + " but translated - TODO");
+		String textEnglish = MorseCodeTranslator.translateToMorseCode(taEnglish.getText());
+		taMorseCode.setText(textEnglish);
 	}
 	
 	@FXML
