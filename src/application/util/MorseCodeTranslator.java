@@ -88,7 +88,24 @@ public class MorseCodeTranslator {
 			}
 			System.out.print(words[i]);
 		}
-		String translatedText = new String();
+		String translatedText = convertToString(words);
 		return translatedText;
+	}
+	
+	/**
+	 * Converts array of strings to a single string
+	 * 
+	 * @param array
+	 *            - array of strings to be converted
+	 * @return - generated string
+	 */
+	private static String convertToString(String[] array) {
+		String output = array[0];
+		// Appends each word onto the end of the current sentence
+		for (int i = 1; i < array.length; i++) {
+			output = output + array[i];
+		}
+		return output;
+
 	}
 }
