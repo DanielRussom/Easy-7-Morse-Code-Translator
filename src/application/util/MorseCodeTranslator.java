@@ -10,7 +10,42 @@ public class MorseCodeTranslator {
 	 * Initializes the dictionary hashmap
 	 */
 	private static void init() {
+		morseCodeDictionary.put(".-", "a");
+		morseCodeDictionary.put("-...", "b");
+		morseCodeDictionary.put("-.-.", "c");
+		morseCodeDictionary.put("-..", "d");
 		morseCodeDictionary.put(".", "e");
+		morseCodeDictionary.put("..-.", "f");
+		morseCodeDictionary.put("--.", "g");
+		morseCodeDictionary.put("....", "h");
+		morseCodeDictionary.put("..", "i");
+		morseCodeDictionary.put(".---", "j");
+		morseCodeDictionary.put("-.-", "k");
+		morseCodeDictionary.put(".-..", "l");
+		morseCodeDictionary.put("--", "m");
+		morseCodeDictionary.put("-.", "n");
+		morseCodeDictionary.put("---", "o");
+		morseCodeDictionary.put(".--.", "p");
+		morseCodeDictionary.put("--.-", "q");
+		morseCodeDictionary.put(".-.", "r");
+		morseCodeDictionary.put("...", "s");
+		morseCodeDictionary.put("-", "t");
+		morseCodeDictionary.put("..-", "u");
+		morseCodeDictionary.put("...-", "v");
+		morseCodeDictionary.put(".--", "w");
+		morseCodeDictionary.put("-..-", "x");
+		morseCodeDictionary.put("-.--", "y");
+		morseCodeDictionary.put("--..", "z");
+		morseCodeDictionary.put("-----", "0");
+		morseCodeDictionary.put(".----", "1");
+		morseCodeDictionary.put("..---", "2");
+		morseCodeDictionary.put("...--", "3");
+		morseCodeDictionary.put("....-", "4");
+		morseCodeDictionary.put(".....", "5");
+		morseCodeDictionary.put("-....", "6");
+		morseCodeDictionary.put("--...", "7");
+		morseCodeDictionary.put("---..", "8");
+		morseCodeDictionary.put("----.", "9");
 	}
 
 	/**
@@ -45,32 +80,15 @@ public class MorseCodeTranslator {
 
 		String[] words = morseCode.split("\\s+");
 		for(int i = 0; i < words.length; i++) {
-			System.out.println(i);
-			System.out.println(words[i]);
-			
+			if(words[i] == "/") {
+				words[i] = " ";
+			}
+			if(morseCodeDictionary.containsKey(words[i])) {
+				words[i] = morseCodeDictionary.get(words[i]);
+			}
+			System.out.print(words[i]);
 		}
-		
-		// char[] test = morseCode.toCharArray();
-		//
-		//
-		// for(int i = 0; i < test.length; i++) {
-		// if(morseCodeDictionary.containsKey(test[i])) {
-		// //test[i] = morseCodeDictionary.get(test);
-		// }
-		// }
 		String translatedText = new String();
 		return translatedText;
-	}
-
-	/**
-	 * Handles splitting up a morse code message into individual characters
-	 * 
-	 * @param morseCode
-	 *            - message to be split up
-	 * @return split up array of original message
-	 */
-	private static String[] splitUpMorseCode(String morseCode) {
-		return null;
-
 	}
 }
