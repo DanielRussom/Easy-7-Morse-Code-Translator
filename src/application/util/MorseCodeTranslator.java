@@ -80,7 +80,7 @@ public class MorseCodeTranslator {
 
 		String[] words = morseCode.split("\\s+");
 		for(int i = 0; i < words.length; i++) {
-			if(words[i] == "/") {
+			if(words[i].equals("/")) {
 				words[i] = " ";
 			}
 			if(morseCodeDictionary.containsKey(words[i])) {
