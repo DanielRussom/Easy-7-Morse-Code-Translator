@@ -77,21 +77,24 @@ public class MorseCodeTranslator {
 			// Calls a method to initialize the dictionary
 			init();
 		}
-
-		String[] words = morseCode.split("\\s+");
-		for(int i = 0; i < words.length; i++) {
-			if(words[i].equals("/")) {
-				words[i] = " ";
+		// Splits the morse code up by spaces
+		String[] characters = morseCode.split("\\s+");
+		for (int i = 0; i < characters.length; i++) {
+			// Replaces slashes with a space
+			if (characters[i].equals("/")) {
+				characters[i] = " ";
 			}
-			if(morseCodeDictionary.containsKey(words[i])) {
-				words[i] = morseCodeDictionary.get(words[i]);
+			// Checks for the current morse character in the dictionary
+			if (morseCodeDictionary.containsKey(characters[i])) {
+				// Translates the current character
+				characters[i] = morseCodeDictionary.get(characters[i]);
 			}
-			System.out.print(words[i]);
 		}
-		String translatedText = convertToString(words);
+		// Calls a method to convert the characters array to a single string
+		String translatedText = convertToString(characters);
 		return translatedText;
 	}
-	
+
 	/**
 	 * Converts array of strings to a single string
 	 * 
