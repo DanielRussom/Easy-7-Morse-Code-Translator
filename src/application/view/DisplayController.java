@@ -23,7 +23,9 @@ public class DisplayController {
 		taMorseCode.setText(textEnglish);
 		if(cbAudio.isSelected()){
 			try {
-				MorseToAudioConverter.playAudio(textEnglish);
+				MorseToAudioConverter converter = new MorseToAudioConverter();
+				MorseToAudioConverter.setCurrentMessage(textEnglish);
+				converter.start();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
