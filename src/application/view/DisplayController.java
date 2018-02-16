@@ -13,7 +13,7 @@ public class DisplayController {
 
 	@FXML
 	private TextArea taEnglish;
-	
+
 	@FXML
 	private CheckBox cbAudio;
 
@@ -21,15 +21,20 @@ public class DisplayController {
 	public void translateToMorseCode() {
 		String textEnglish = MorseCodeTranslator.translateToMorseCode(taEnglish.getText());
 		taMorseCode.setText(textEnglish);
-		if(cbAudio.isSelected()){
+		if (cbAudio.isSelected()) {
+			if (MorseToAudioConverter.isCurrentlyPlaying) {
+				MorseToAudioConverter.currentPlaying.stopFlag = true;
+			}
 			try {
 				MorseToAudioConverter converter = new MorseToAudioConverter();
+				MorseToAudioConverter.currentPlaying = converter;
 				MorseToAudioConverter.setCurrentMessage(textEnglish);
 				converter.start();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		}
 	}
 
