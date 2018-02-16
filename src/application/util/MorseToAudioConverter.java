@@ -34,31 +34,31 @@ public class MorseToAudioConverter extends Thread {
 			try {
 				switch (currentMessage.charAt(i)) {
 				case '.':
-					tone(400, 500);
+					tone(500, 250);
 					break;
 				case '-':
-					tone(400, 1000);
+					tone(500, 750);
 					break;
+				case '/':
+					Thread.sleep(1500);
 				default:
 					Thread.sleep(500);
 				}
+				Thread.sleep(250);
 			} catch (LineUnavailableException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public static void main(String[] args) throws Exception {
-		for (int i = 0; i < 10; i++) {
-			Thread.sleep(1000);
-			tone(400, 500);
-		}
-	}
-
+	/**
+	 * Sets the current stored message
+	 * 
+	 * @param currentMessage
+	 *            - message to be stored
+	 */
 	public static void setCurrentMessage(String currentMessage) {
 		MorseToAudioConverter.currentMessage = currentMessage;
 	}
