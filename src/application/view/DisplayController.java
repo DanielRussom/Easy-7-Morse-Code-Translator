@@ -22,16 +22,19 @@ public class DisplayController {
 		String textEnglish = MorseCodeTranslator.translateToMorseCode(taEnglish.getText());
 		taMorseCode.setText(textEnglish);
 		if (cbAudio.isSelected()) {
+			// Checks if an audio converter is already running
 			if (MorseToAudioConverter.isCurrentlyPlaying) {
+				// Triggers the stop flag
 				MorseToAudioConverter.currentPlaying.stopFlag = true;
 			}
 			try {
+				// Starts a new converter and stores it
 				MorseToAudioConverter converter = new MorseToAudioConverter();
 				MorseToAudioConverter.currentPlaying = converter;
+				// Sets the message to play and runs a thread
 				MorseToAudioConverter.setCurrentMessage(textEnglish);
 				converter.start();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

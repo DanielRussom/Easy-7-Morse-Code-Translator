@@ -12,6 +12,13 @@ public class MorseToAudioConverter extends Thread {
 	public static MorseToAudioConverter currentPlaying;
 	public boolean stopFlag = false;
 
+	/**
+	 * Outputs an audio tone
+	 * 
+	 * @param msecs
+	 *            - length of time in ms to play the tone for
+	 * @throws LineUnavailableException
+	 */
 	public static void tone(int msecs) throws LineUnavailableException {
 		byte[] buf = new byte[1];
 		AudioFormat af = new AudioFormat(SAMPLE_RATE, 8, 1, true, false);
@@ -29,10 +36,11 @@ public class MorseToAudioConverter extends Thread {
 	}
 
 	public void run() {
+		// Triggers the playing flag
 		isCurrentlyPlaying = true;
 		for (int i = 0; i < currentMessage.length(); i++) {
 			// Exits if the stop flag has been triggered
-			if(stopFlag) {
+			if (stopFlag) {
 				return;
 			}
 			try {
