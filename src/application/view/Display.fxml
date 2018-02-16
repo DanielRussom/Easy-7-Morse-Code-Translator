@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
@@ -23,12 +24,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="373.0" layoutY="249.0" mnemonicParsing="false" onAction="#translateToMorseCode" text="Translate to Morse Code" />
+      <Button layoutX="419.0" layoutY="249.0" mnemonicParsing="false" onAction="#translateToMorseCode" text="Translate to Morse Code" />
       <TextArea fx:id="taEnglish" layoutX="329.0" layoutY="105.0" prefHeight="132.0" prefWidth="234.0" wrapText="true" />
       <Label layoutX="419.0" layoutY="62.0" text="English">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <CheckBox fx:id="cbAudio" layoutX="329.0" layoutY="253.0" mnemonicParsing="false" text="Audio" />
    </children>
 </AnchorPane>
